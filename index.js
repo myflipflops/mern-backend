@@ -14,11 +14,8 @@ app.use(express.json());
 app.use(cors({
     origin: [
         'http://localhost:5173',                             // For local frontend development
-        'https://parags-mern-project.vercel.app',            // Your potentially old frontend Vercel URL (no trailing slash)
-        'https://parags-mern-project.vercel.app/',           // Your potentially old frontend Vercel URL (with trailing slash)
-        'https://parags-mern-bookstore-project.vercel.app',  // Your NEW frontend Vercel URL (NO trailing slash)
-        'https://parags-mern-bookstore-project.vercel.app/'  // Your NEW frontend Vercel URL (with trailing slash)
-        // Add any other specific domains your frontend might use if needed (e.g., custom domains)
+        'https://mern-book-store-frontend-2uol.vercel.app',  // Your LATEST frontend Vercel URL (NO trailing slash)
+        'https://mern-book-store-frontend-2uol.vercel.app/'  // Your LATEST frontend Vercel URL (with trailing slash)
     ],
     credentials: true
 }));
