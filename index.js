@@ -11,11 +11,13 @@ const port = process.env.PORT || 5000; // Keep for local development reference
 app.use(express.json());
 
 // --- START OF CORRECTED CORS CONFIGURATION ---
+// This regex allows any URL ending with 'mern-book-store-frontend' followed by an optional
+// Vercel deployment hash (e.g., -gi3g) and then '.vercel.app'.
+// This is the solution for your changing frontend Vercel URLs.
 app.use(cors({
     origin: [
-        'http://localhost:5173',                             // For local frontend development
-        'https://mern-book-store-frontend-2uol.vercel.app',  // Your LATEST frontend Vercel URL (NO trailing slash)
-        'https://mern-book-store-frontend-2uol.vercel.app/'  // Your LATEST frontend Vercel URL (with trailing slash)
+        'http://localhost:5173',                               // For local frontend development
+        /^https:\/\/mern-book-store-frontend(-\w+)*\.vercel\.app$/ // Allows: https://mern-book-store-frontend.vercel.app, https://mern-book-store-frontend-gi3g.vercel.app, etc.
     ],
     credentials: true
 }));
